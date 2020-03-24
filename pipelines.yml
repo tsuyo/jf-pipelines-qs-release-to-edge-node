@@ -4,7 +4,7 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: myArtifactory
-      buildName: svc_build
+      buildName: quickstart_go_build
       buildNumber: 1
  
   # Build info of second build to bundle
