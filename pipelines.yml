@@ -12,7 +12,7 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: myArtifactory
-      buildName: backend_build
+      buildName: quickstart_docker_build
       buildNumber: 1
  
   # Release bundle
