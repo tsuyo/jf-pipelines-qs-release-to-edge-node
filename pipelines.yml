@@ -8,7 +8,7 @@ resources:
       buildNumber: 1
  
   # Build info of second build to bundle
-  - name: appl_promoted_build_info
+  - name: appl_promoted_build_info_for_edge
     type: BuildInfo
     configuration:
       sourceArtifactory: myArtifactory
@@ -56,7 +56,7 @@ pipelines:
           inputResources:
             - name: gosvc_promoted_build_info
               trigger: true
-            - name: appl_promoted_build_info
+            - name: appl_promoted_build_info_for_edge
               trigger: true
           outputResources:
             - name: release_bundle
