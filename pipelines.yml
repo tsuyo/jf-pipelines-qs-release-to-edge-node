@@ -49,8 +49,7 @@ pipelines:
         type: CreateReleaseBundle
         configuration:
           releaseBundleName: demo_rb
-          # releaseBundleVersion: v1.0.${run_number}
-          releaseBundleVersion: v1.0.0
+          releaseBundleVersion: v1.0.${run_number}
           dryRun: false
           sign: false
           description: "some random test description"
