@@ -2,6 +2,7 @@ template: true
 valuesFilePath: ./values.yml
 
 resources: 
+  # release bundle
   - name: {{ .Values.pipelines.name }}
     type: ReleaseBundle
     configuration:
@@ -17,17 +18,17 @@ resources:
       name: {{ .Values.pipelines.name }}
       version: beta
  
-  # # Distribution rules
-  # - name: distribution_rules
-  #   type: DistributionRule
-  #   configuration:
-  #     sourceDistribution: myDist
-  #     serviceName: "*"
-  #     siteName: "*"
-  #     cityName: "*"
-  #     countryCodes:
-  #       - "JP"
-  #       - "GB"
+  # Distribution rules
+  - name: distribution_jp_us
+    type: DistributionRule
+    configuration:
+      sourceDistribution: {{ .Values.distribution }}
+      serviceName: "*"
+      siteName: "*"
+      cityName: "*"
+      countryCodes:
+        - "JP"
+        - "US"
 
 
 pipelines:
@@ -63,10 +64,10 @@ pipelines:
           outputResources:
             - name: signed_{{ .Values.pipelines.name }}
  
-      # - name: distribute
-      #   type: DistributeReleaseBundle
-      #   configuration:
-      #     dryRun: false
-      #     inputResources:
-      #       - name: signed_bundle
-      #       - name: distribution_rules
+      - name: distribute_release_bundle
+        type: DistributeReleaseBundle
+        configuration:
+          dryRun: false
+          inputResources:
+            - name: signed_{{ .Values.pipelines.name }}
+            - name: distribution_jp_us
