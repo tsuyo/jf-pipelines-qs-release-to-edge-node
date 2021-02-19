@@ -9,13 +9,13 @@ resources:
       name: {{ .Values.pipelines.name }}
       version: beta
  
-  # # Signed version of the same release bundle
-  # - name: signed_bundle
-  #   type: ReleaseBundle
-  #   configuration:
-  #     sourceDistribution: myDist
-  #     name: demo_rb
-  #     version: v1.0.0
+  # Signed version of the same release bundle
+  - name: signed_{{ .Values.pipelines.name }}
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: {{ .Values.distribution }}
+      name: {{ .Values.pipelines.name }}
+      version: beta
  
   # # Distribution rules
   # - name: distribution_rules
@@ -55,13 +55,13 @@ pipelines:
           #       * Bullet
           #       * Points
              
-      # - name: sign
-      #   type: SignReleaseBundle
-      #   configuration:
-      #     inputResources:
-      #       - name: release_bundle
-      #     outputResources:
-      #       - name: signed_bundle
+      - name: sign_release_bundle
+        type: SignReleaseBundle
+        configuration:
+          inputResources:
+            - name: {{ .Values.pipelines.name }}
+          outputResources:
+            - name: signed_{{ .Values.pipelines.name }}
  
       # - name: distribute
       #   type: DistributeReleaseBundle
