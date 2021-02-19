@@ -9,3 +9,7 @@ Sources for [Pipeline Example: Release to Edge Node](https://www.jfrog.com/confl
   - distribution: Distribution
 - Pipelines
   - [JFrog Pipelines Quickstart: Go Build](https://github.com/tsuyo/jfrog-pipelines-quickstart--go-build/)
+  - [JFrog Pipelines Quickstart: Npm Build](https://github.com/tsuyo/jfrog-pipelines-quickstart--npm-build/)
+- Edge Nodes
+  - one in US
+  - one in GB
