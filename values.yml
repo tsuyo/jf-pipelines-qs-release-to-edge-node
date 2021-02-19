@@ -1,8 +1,8 @@
 artifactory: artifactory
 distribution: distribution
-build:
+inputBuild:
   name1: quickstart_go_build
-  number1: 1
+  name2: quickstart_npm_build
 pipelines:
   name: quickstart_release_to_edge_node
     

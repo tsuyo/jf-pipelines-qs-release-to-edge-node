@@ -7,3 +7,5 @@ Sources for [Pipeline Example: Release to Edge Node](https://www.jfrog.com/confl
 - Integrations
   - artifactory: Artifactory
   - distribution: Distribution
+- Pipelines
+  - [JFrog Pipelines Quickstart: Go Build](https://github.com/tsuyo/jfrog-pipelines-quickstart--go-build/)

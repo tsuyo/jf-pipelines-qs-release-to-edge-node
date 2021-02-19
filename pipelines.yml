@@ -1,24 +1,7 @@
 template: true
 valuesFilePath: ./values.yml
 
-resources:
-  # # Build info of first build to bundle
-  # - name: {{ .Values.build.name1 }}
-  #   type: BuildInfo
-  #   configuration:
-  #     sourceArtifactory: {{ .Values.artifactory }}
-  #     buildName: {{ .Values.build.name1 }}
-  #     buildNumber: {{ .Values.build.number1 }}
- 
-  # # Build info of second build to bundle
-  # - name: appl_promoted_build_info_for_edge
-  #   type: BuildInfo
-  #   configuration:
-  #     sourceArtifactory: myArtifactory
-  #     buildName: quickstart_docker_build
-  #     buildNumber: 1
- 
-  # Release Bundle
+resources: 
   - name: {{ .Values.pipelines.name }}
     type: ReleaseBundle
     configuration:
@@ -61,8 +44,8 @@ pipelines:
           inputResources:
             # you can reuse a build info even if a resource definition is not in this pipelines.yml
             # because this is a global resource
-            - name: {{ .Values.build.name1 }}
-            # - name: appl_promoted_build_info_for_edge
+            - name: {{ .Values.inputBuild.name1 }}
+            - name: {{ .Values.inputBuild.name2 }}
           outputResources:
             - name: {{ .Values.pipelines.name }}
           # releaseNotes:
