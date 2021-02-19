@@ -55,11 +55,13 @@ pipelines:
         configuration:
           releaseBundleName: {{ .Values.pipelines.name }}
           releaseBundleVersion: beta-${run_number}
-          dryRun: true
-          # sign: false
+          dryRun: false
+          # sign: false # default
           description: {{ .Values.pipelines.name }}
           inputResources:
-            - name: quickstart_go_build
+            # you can reuse a build info even if a resource definition is not in this pipelines.yml
+            # because this is a global resource
+            - name: {{ .Values.build.name1 }}
             # - name: appl_promoted_build_info_for_edge
           outputResources:
             - name: {{ .Values.pipelines.name }}
