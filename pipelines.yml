@@ -19,7 +19,7 @@ resources:
       version: beta
  
   # Distribution rules
-  - name: distribution_jp_us
+  - name: distribution_us_gb
     type: DistributionRule
     configuration:
       sourceDistribution: {{ .Values.distribution }}
@@ -27,8 +27,8 @@ resources:
       siteName: "*"
       cityName: "*"
       countryCodes:
-        - "JP"
         - "US"
+        - "GB"
 
 
 pipelines:
@@ -70,4 +70,4 @@ pipelines:
           dryRun: false
           inputResources:
             - name: signed_{{ .Values.pipelines.name }}
-            - name: distribution_jp_us
+            - name: distribution_us_gb
