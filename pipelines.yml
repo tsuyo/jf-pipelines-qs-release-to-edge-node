@@ -46,7 +46,7 @@ pipelines:
             # you can reuse a build info even if a resource definition is not in this pipelines.yml
             # because this is a global resource
             - name: {{ .Values.inputBuild.name1 }}
-            - name: {{ .Values.inputBuild.name2 }}
+            # - name: {{ .Values.inputBuild.name2 }}
           outputResources:
             - name: {{ .Values.pipelines.name }}
           # releaseNotes:
